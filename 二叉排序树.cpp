@@ -294,7 +294,7 @@ bool List::judgePostOrder(vector<datatype> array, int index1, int index2) {
 	if(tmp){
 		deleteList(tmp->left);
 		deleteList(tmp->right);
-		delete(tmp);
+		delete tmp;
 	}
 }
 
