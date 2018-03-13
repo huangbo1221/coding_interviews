@@ -36,6 +36,8 @@ public:
 	//义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。
 	void findSubPath(TreeNode *root, datatype total_sum,vector<vector<datatype>> &res, vector<datatype> &tmp);//
 	bool judgePostOrder(vector<datatype> array, int index1, int index2);//判断一个数组是否是某个二叉树的后续遍历结果
+	void deleteList(TreeNode *tmp);
+	~List();
 private:
 	TreeNode * root;
 };
@@ -288,6 +290,17 @@ bool List::judgePostOrder(vector<datatype> array, int index1, int index2) {
 		return false;
 }
 
+	void List::deleteList(TreeNode *tmp){
+	if(tmp){
+		deleteList(tmp->left);
+		deleteList(tmp->right);
+		delete(tmp);
+	}
+}
+
+	List::~List(){
+	deleteList(root);
+}
 //int main()
 //{
 //	List L = List();
